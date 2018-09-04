@@ -23,10 +23,17 @@
     "@babel/preset-env": "^7.0.0",
     "babel-loader": "^8.0.2",
     "chai": "^4.1.2",
+    "css-loader": "^1.0.0",
     "eslint": "latest",
     "eslint-plugin-node": "latest",
+    "file-loader": "^2.0.0",
+    "mini-css-extract-plugin": "^0.4.2",
     "mocha": "^5.2.0",
+    "node-sass": "^4.9.3",
     "nodemon": "latest",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0",
+    "url-loader": "^1.1.1",
     "webpack-command": "^0.4.1"
   }
 }
