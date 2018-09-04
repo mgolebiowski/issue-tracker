@@ -1,4 +1,4 @@
-const Issue = require("../../models/issue");
+const Issue = require("../../models/schemas/issue");
 
 const createItem = (req, res) => {
 
