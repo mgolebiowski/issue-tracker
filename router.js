@@ -8,11 +8,10 @@ module.exports = function (app) {
   const apiRoutes = express.Router();
   const homeRoutes = express.Router();
 
-  apiRoutes.post("/api", APIController.create);
-  apiRoutes.get("/api", APIController.findAll);
-  apiRoutes.get("/api/:issueID", APIController.findOne);
-  apiRoutes.put("/api/:issueID", APIController.update);
-  apiRoutes.delete("/api/:issueID", APIController.delete);
+  apiRoutes.post("/issue", APIController.createItem);
+  apiRoutes.get("/issues", APIController.findAll);
+  apiRoutes.get("/issue/:issueID", APIController.findOne);
+  apiRoutes.put("/issue/:issueID", APIController.updateStatus);
 
   homeRoutes.get("/", HomeController.index);
 

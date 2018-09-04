@@ -3,9 +3,6 @@ const mongoose = require("mongoose"),
 
 const IssueSchema = new Schema(
   {
-    id: {
-      type: Number
-    },
     title: {
       type: String
     },
@@ -15,9 +12,6 @@ const IssueSchema = new Schema(
     status: {
       type: Number
     }
-  },
-  {
-    timestamps: true
   }
 );
 
