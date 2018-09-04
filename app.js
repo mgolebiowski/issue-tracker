@@ -21,6 +21,8 @@ app.use(morgan("dev")); // log every request to the console
 
 app.use(cors());
 
+app.use("/static", express.static(__dirname + "/static"));
+
 // Start the server
 app.listen(config.port);
 console.log("Your server is running on " + config.port);
