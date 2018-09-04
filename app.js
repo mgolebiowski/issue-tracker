@@ -21,7 +21,7 @@ app.use(morgan("dev")); // log every request to the console
 
 app.use(cors());
 
-app.use("/static", express.static(__dirname + "/static"));
+app.use("/static/dist", express.static(__dirname + "/static/dist"));
 
 // Start the server
 app.listen(config.port);
