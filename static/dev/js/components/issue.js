@@ -47,7 +47,7 @@ export default class Issue extends React.Component {
       <div className="card">
         <div className="card-header" onClick={this.toggle} id="headingOne">
           <h6 className="mb-0 row">
-            <div className="col">
+            <div className="col d-none d-md-block">
             #{this.props.id}
             </div>
             <div className="col">
