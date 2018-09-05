@@ -2,11 +2,7 @@ const Issue = require("../../models/schemas/issue");
 
 const createItem = (req, res) => {
 
-  const issue = new Issue({
-    title: req.body.title || "Untitled Issue",
-    description: req.body.description,
-    status: 0
-  });
+  const issue = createNewIssueModel(req.body.title, req.body.description);
 
   issue.save()
     .then((data) => {
@@ -16,6 +12,13 @@ const createItem = (req, res) => {
         message: err.message || "Some error occurred while creating the issue."
       });
     });
+};
+
+const createNewIssueModel = (title, description) => {
+  if(!title) {
+    title = "Untitled issue";
+  }
+  return new Issue({title, description, status: 0});
 };
 
 const findAll = (req, res) => {
@@ -47,24 +50,26 @@ const findOne = (req, res) => {
     });
 };
 
+const updateIssueStatus = (issue) => {
+  if(issue.status === 2) {
+    throw new Error("Issue is closed");
+  } else {
+    issue.status++;
+    return issue;
+  }
+};
+
 const updateStatus = (req, res) => {
   Issue.findById(req.params.issueID)
     .then((issue) => {
-      if(issue.status === 2) {
-        res.status(400).send({
-          message: "Issue is closed"
-        });
-      } else {
-        issue.status++;
-        issue.save().then((data) => {
+      try{
+        issue = updateIssueStatus(issue);
+        issue.save().then((data)=>{
           res.send(data);
-        }).catch((err) => {
-          res.send(
-            {
-              message: "Error",
-              err
-            }
-          );
+        });
+      } catch(err) {
+        res.status(400).send({
+          message: err
         });
       }
     })
@@ -82,5 +87,8 @@ module.exports = {
   createItem,
   findAll,
   findOne,
-  updateStatus
+  updateStatus,
+
+  createNewIssueModel,
+  updateIssueStatus
 };

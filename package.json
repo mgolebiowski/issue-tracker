@@ -5,7 +5,7 @@
   "scripts": {
     "backend:dev": "nodemon app.js",
     "frontend:dev": "webpack --watch",
-    "lint": "eslint *"
+    "test": "mocha specs/**/*.js"
   },
   "dependencies": {
     "bluebird": "^3.5.1",
