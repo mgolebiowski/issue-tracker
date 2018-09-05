@@ -19,7 +19,7 @@ const createItem = (req, res) => {
 };
 
 const findAll = (req, res) => {
-  Issue.find()
+  Issue.find().sort({status: 1, createdAt: -1})
     .then((issues) => {
       res.send(issues);
     })

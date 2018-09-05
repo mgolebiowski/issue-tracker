@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon app.js",
+    "backend:dev": "nodemon app.js",
+    "frontend:dev": "webpack --watch",
     "lint": "eslint *"
   },
   "dependencies": {
@@ -16,16 +17,22 @@
     "mongoose": "^4.13.2",
     "morgan": "^1.9.0",
     "popper.js": "^1.14.4",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "reactstrap": "^6.4.0",
     "webpack": "^4.17.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.2",
     "chai": "^4.1.2",
     "css-loader": "^1.0.0",
     "eslint": "latest",
     "eslint-plugin-node": "latest",
+    "eslint-plugin-react": "^7.11.1",
     "file-loader": "^2.0.0",
     "mini-css-extract-plugin": "^0.4.2",
     "mocha": "^5.2.0",

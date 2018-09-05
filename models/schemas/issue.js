@@ -12,6 +12,9 @@ const IssueSchema = new Schema(
     status: {
       type: Number
     }
+  },
+  {
+    timestamps: true
   }
 );
 
