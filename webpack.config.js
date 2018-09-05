@@ -1,6 +1,8 @@
 var path = require("path");
 // var webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
   entry: "./static/dev/js/main.js",
@@ -10,7 +12,18 @@ module.exports = {
     filename: "bundle.js"
   },
   optimization: {
-    minimize: true
+    minimize: true,
+    minimizer: [
+      new UglifyJSPlugin({
+        sourceMap: true,
+        uglifyOptions: {
+          compress: {
+            inline: true
+          }
+        }
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ]
   },
   stats: {
     colors: true

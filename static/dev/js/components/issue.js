@@ -75,7 +75,7 @@ export default class Issue extends React.Component {
 }
 
 Issue.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
   status: PropTypes.number,
